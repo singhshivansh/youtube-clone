@@ -9,7 +9,7 @@ const Sidebar = () => {
 
     return(
         <>
-            <div className="w-40 h-full bg-slate-500 z-10">
+            <div className="w-40 h-screen  bg-slate-500 z-10">
                 <ul>
                     <li className=" py-2">
                         Home
