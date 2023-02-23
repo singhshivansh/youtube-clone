@@ -6,6 +6,7 @@ import store from "./utils/store";
 import Body from './Components/Body';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import VideoContainer from './Components/VideoContainer';
+import VideoPage from './Components/VideoPage';
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -16,6 +17,10 @@ function App() {
         {
           path: "/",
           element : <VideoContainer />
+        },
+        {
+          path : '/watch',
+          element : <VideoPage/>
         }
       ]
     }
@@ -23,8 +28,12 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <Header />
-        <RouterProvider router={appRouter} />
+        <div className=''>
+          <Header />
+        </div>
+        <div className=''>
+          <RouterProvider router={appRouter} />
+        </div>
       </Provider>
     </>
   );

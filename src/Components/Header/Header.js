@@ -12,7 +12,7 @@ const Header = () => {
         dispatch(toggleSidebar());
     }
     return(<>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="fixed bg-white shadow-md  z-50 w-full px-5 flex justify-between items-center">
             <div className="">
                 <div className="flex px-3">
                     <div className="flex flex-col justify-center">
@@ -21,7 +21,7 @@ const Header = () => {
                     <img className="h-14 px-2" src={youtube_logo} />
                 </div>
             </div>
-            <div className="px-5 my-2 col-span-2">
+            <div className="px-5 my-2 w-3/6">
                 <div className="flex justify-center  ">
                     <input className="appearance-none border border-gray-300 px-3 rounded-l-full w-3/4" placeholder="Search" />
                     <div className="p-2  bg-gray-200 rounded-r-3xl">
