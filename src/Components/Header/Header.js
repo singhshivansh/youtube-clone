@@ -4,6 +4,7 @@ import bell from "../../assets/images/bell.png"
 import search from "../../assets/images/magnifying-glass.png";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../../utils/slices/navigationSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,9 @@ const Header = () => {
                     <div className="flex flex-col justify-center">
                         <img className="h-7 cursor-pointer" onClick={()=>handleSidebar()}  src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/256/external-mobile-application-hamburger-menu-setting-interface-basic-filled-tal-revivo.png" />
                     </div>
-                    <img className="h-14 px-2" src={youtube_logo} />
+                        <div>
+                            <img className="h-14 px-2" src={youtube_logo} />
+                        </div>
                 </div>
             </div>
             <div className="px-5 my-2 w-3/6">

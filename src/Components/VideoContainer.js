@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_API } from "../utils/constants";
-import { getViews, timeAgo } from "../utils/helper";
-import { Link } from "react-router-dom";
+import VideoCard from "./VideoCard";
 
 const VideoContainer = () => {
     useEffect(() => {
@@ -34,21 +33,7 @@ const VideoContainer = () => {
                 {
                     videosData.map(data => {
                         return(
-                            <div className="py-2 cursor-pointer" key={data.id}>
-                                    <Link to={'/watch?v='+data.id}>
-                                    <div className="rounded-md">
-                                        <img className="rounded-xl" src={data.snippet.thumbnails.medium.url} />
-                                    </div>
-                                    <div className="py-2">
-                                        <p className="text-sm px-2 font-semibold w-full">{data.snippet.title}</p>
-                                        <p className="text-xs text-gray-600 px-2">{data.snippet.channelTitle}</p>
-                                        <p className="px-2 text-xs text-gray-500">
-                                            {getViews(data.statistics.viewCount)} views . {timeAgo(data.snippet.publishedAt)}
-                                        </p>
-                                        
-                                    </div>
-                                </Link>
-                            </div>
+                            <VideoCard data={data} />
                         )
                     })
                 }

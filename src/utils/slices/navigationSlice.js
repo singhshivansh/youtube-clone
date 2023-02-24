@@ -9,9 +9,12 @@ const navigationSlice = createSlice({
     reducers : {
         toggleSidebar : (state) => {
             state.isSidebarOpen = !state.isSidebarOpen;
+        },
+        closeSidebar : (state) => {
+            state.isSidebarOpen = false;
         }
     }
 })
 
-export const {toggleSidebar} = navigationSlice.actions;
+export const {toggleSidebar, closeSidebar} = navigationSlice.actions;
 export default navigationSlice.reducer;

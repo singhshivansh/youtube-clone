@@ -1,13 +1,17 @@
-export const getViews = (views) => {    
-    if(views < 1000)
-        return views;
-    if(views > 999 && views < 1000000){
-        return (views/1000).toPrecision(3) + 'K'
+export const getViews = (views) => {
+    try{
+        if(views < 1000)
+            return views;
+        if(views > 999 && views < 1000000){
+            return (views/1000).toPrecision(3) + 'K'
+        }
+        if(views > 999999 && views < 100000000){
+            return (views/1000000).toPrecision(3) + 'M'
+        }
+        return (views/10000000).toPrecision(3) + 'B'
+    }catch{
+        return null;
     }
-    if(views > 999999 && views < 100000000){
-        return (views/1000000).toPrecision(3) + 'M'
-    }
-    return (views/10000000).toPrecision(3) + 'B'
 }
 
 export function timeAgo (value) {
@@ -24,4 +28,11 @@ export function timeAgo (value) {
     interval = seconds / 60
     if (interval > 1) { return rtf.format(-Math.floor(interval), 'minute') }
     return rtf.format(-Math.floor(interval), 'second')
+}
+
+export const restrictText = (text, len) => {
+    if(text.length < len)
+        return text;
+    
+    return text.substring(0, len) + '...';
 }

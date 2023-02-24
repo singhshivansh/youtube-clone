@@ -5,17 +5,10 @@ import { useSelector } from 'react-redux';
 
 const Body = () => {
 
-  const isSidebarOpen = useSelector(store => store.navigation.isSidebarOpen);
-
   return (
     <>
         <div className='flex'>
-            {
-              isSidebarOpen ? 
-              <div className='mr-48'>
-                <Sidebar />
-              </div>  :null
-            }
+            <Sidebar />
             <div className=' mt-16'>
               <Outlet />
             </div>
