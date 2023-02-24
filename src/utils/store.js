@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import navigationSlice from "./slices/navigationSlice";
+import searchCacheSlice from "./slices/searchCacheSlice";
 
 const store = configureStore({
     reducer : {
-        navigation : navigationSlice
+        navigation : navigationSlice,
+        searchCache : searchCacheSlice
     }
 })
 

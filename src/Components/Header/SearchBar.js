@@ -1,16 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import search from "../../assets/images/magnifying-glass.png";
 import { SEARCH_API } from '../../utils/constants';
+import { useDispatch } from 'react-redux';
+import { addSearchObj } from '../../utils/slices/searchCacheSlice';
+import { useSelector } from 'react-redux';
 
 const SearchBar = () => {
 
     const [searchText, setsearchText] = useState('');
     const [suggestionList, setsuggestionList] = useState([]);
     const [hideSuggestion, sethideSuggestion] = useState(false);
+    const dispatch = useDispatch();
+    const chachedResults = useSelector(store => store.searchCache);
+
+    console.log(chachedResults);
+
     useEffect(() => {
-        const timer = setTimeout(fetchSuggestion(), 200);
-        return () => {
-            clearTimeout(timer);
+        if(chachedResults[searchText]){
+            setsuggestionList(chachedResults[searchText]);
+        }else{
+            const timer = setTimeout(fetchSuggestion(), 200);
+            return () => {
+                clearTimeout(timer);
+            }
         }
     }, [searchText]);
 
@@ -18,7 +30,10 @@ const SearchBar = () => {
         let data = await fetch(SEARCH_API + searchText);
         data = await data.json();
         setsuggestionList(data[1]);
-
+        const searchObj = {
+            [searchText] : data[1]
+        }
+        dispatch(addSearchObj(searchObj));
     }
 
     const handleSearch = (e) => {
@@ -28,7 +43,7 @@ const SearchBar = () => {
     return (
     <>
         <div className="flex justify-center  ">
-            <input className="appearance-none border border-gray-300 px-3 rounded-l-full w-full" 
+            <input className="appearance-none border-gray-300 px-3 rounded-l-full w-full border-2 focus:border-blue-600" 
             onFocus={()=>sethideSuggestion(true)}
             onBlur={() => sethideSuggestion(false)}
             value={searchText} onChange={handleSearch} placeholder="Search" />
