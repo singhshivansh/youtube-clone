@@ -1,10 +1,10 @@
 import React from "react";
 import youtube_logo from "../../assets/images/youtube_logo.png";
-import bell from "../../assets/images/bell.png"
-import search from "../../assets/images/magnifying-glass.png";
+import bell from "../../assets/images/bell.png";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../../utils/slices/navigationSlice";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -24,14 +24,9 @@ const Header = () => {
                         </div>
                 </div>
             </div>
-            <div className="px-5 my-2 w-3/6">
-                <div className="flex justify-center  ">
-                    <input className="appearance-none border border-gray-300 px-3 rounded-l-full w-3/4" placeholder="Search" />
-                    <div className="p-2  bg-gray-200 rounded-r-3xl">
-                        <img className="h-5" src={search} />
-                    </div>
-                </div>
-            </div>
+            <div className="px-5 my-2 w-2/5">
+                <SearchBar />
+            </div>  
             <div className="">
                 <img className="h-6" src={bell} />
             </div>
