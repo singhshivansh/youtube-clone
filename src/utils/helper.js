@@ -1,7 +1,8 @@
 export const getViews = (views) => {
+    console.log(views);
     try{
         if(views < 1000)
-            return views;
+            return views + ' views';
         if(views > 999 && views < 1000000){
             return (views/1000).toPrecision(3) + 'K'
         }
@@ -31,8 +32,13 @@ export function timeAgo (value) {
 }
 
 export const restrictText = (text, len) => {
-    if(text.length < len)
-        return text;
-    
-    return text.substring(0, len) + '...';
+    try{
+        if(text.length < len)
+            return text;
+        
+        return text.substring(0, len) + '...';
+    }
+    catch{
+        return false;
+    }
 }

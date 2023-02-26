@@ -31,7 +31,7 @@ const VideoContainer = () => {
 
             <div className="grid grid-cols-4 gap-2">
                 {
-                    videosData.map(data => {
+                    videosData && videosData.map(data => {
                         return(
                             <VideoCard data={data} />
                         )

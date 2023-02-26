@@ -13,8 +13,6 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const chachedResults = useSelector(store => store.searchCache);
 
-    console.log(chachedResults);
-
     useEffect(() => {
         if(chachedResults[searchText]){
             setsuggestionList(chachedResults[searchText]);

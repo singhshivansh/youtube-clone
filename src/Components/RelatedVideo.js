@@ -6,10 +6,10 @@ const RelatedVideo = ({data}) => {
   return (
     <>
         <div className="py-2 cursor-pointer" key={data.id}>
-                <Link to={'/watch?v='+data.id}>
+                <Link to={'/watch?v='+data.id.videoId}>
                 <div className='flex'>
                     <div className="flex flex-col justify-center rounded-sm w-48">
-                        <img className="rounded-md" src={data.snippet.thumbnails.medium.url} />
+                        <img className="rounded-md w-48" src={data.snippet.thumbnails.medium.url} />
                     </div>
                     <div className="py-2">
                         <p className="text-sm px-2 font-semibold w-full">{restrictText(data.snippet.title, 50)}</p>
