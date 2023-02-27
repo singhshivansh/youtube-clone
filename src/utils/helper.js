@@ -1,5 +1,4 @@
 export const getViews = (views) => {
-    console.log(views);
     try{
         if(views < 1000)
             return views + ' views';

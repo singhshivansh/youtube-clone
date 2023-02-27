@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { closeSidebar, toggleSidebar } from '../utils/slices/navigationSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faShare, faHeartCirclePlus, faScissors, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-
+import Comments from './Comments';
 
 const VideoPage = () => {
   const [relatedVideos, setrelatedVideos] = useState([]);
@@ -47,15 +47,6 @@ const VideoPage = () => {
     data = await data.json();
     setchannelDetails(data.items[0]);
   }
-
-  // const descriptionFn = (text) =>{
-  //   if(text.length < 200)
-  //     return;
-  //   return <div>
-  //     {text.substring(0, 200) + '...'} <button className='text-black'>Show</button>
-  //   </div>
-  // }
-  
   const [v] = useSearchParams();
   const videoId = v.get('v');
  
@@ -70,7 +61,7 @@ const VideoPage = () => {
     <div className='ml-16 flex'>
         <div className='w-2/3'>
           <div className='h-screen pt-5'>
-            <iframe className='w-full h-2/3' onLoad={() => playVideo()} src={"https://www.youtube.com/embed/" + videoId}
+            <iframe className='w-full h-2/3' onLoad={() => playVideo()} src={"https://www.youtube.com/embed/" + videoId + '?autoplay=1'}
             
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowFullScreen></iframe>
@@ -152,6 +143,7 @@ const VideoPage = () => {
             </div>
           </div>
           </div>
+          <Comments />
         </div>
         <div className='px-5 w-1/3'>
           {
