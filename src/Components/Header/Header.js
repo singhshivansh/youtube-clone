@@ -17,16 +17,16 @@ const Header = () => {
     return(<>
         <div className="fixed bg-white shadow-md  z-50 w-full px-5 flex justify-between items-center">
             <div className="">
-                <Link to="/">
                     <div className="flex px-3">
                         <div className="flex flex-col justify-center">
                             <img className="h-7 cursor-pointer" onClick={()=>handleSidebar()}  src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/256/external-mobile-application-hamburger-menu-setting-interface-basic-filled-tal-revivo.png" />
                         </div>
-                        <div>
-                            <img className="h-14 px-2" src={youtube_logo} />
-                        </div>
+                        <Link to="/">
+                            <div>
+                                <img className="h-14 px-2" src={youtube_logo} />
+                            </div>
+                        </Link>
                     </div>
-                </Link>
             </div>
             <div className="px-5 my-2 w-2/5">
                 <SearchBar />
