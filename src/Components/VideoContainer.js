@@ -19,7 +19,7 @@ const VideoContainer = () => {
         setvideosData(data.items)
     }
     const headerData = ['Mixes', 'Music', 'Programming', 'Sports', 'Physics', 'History',
-     'Comedy', 'Bollywood', 'Hollywood', 'Trending', 'Gaming', 'News', 'Movies', 'Shows', 'Learning', 'Live', ];
+     'Comedy', 'Bollywood', 'Hollywood', 'Trending', 'Gaming', 'News', 'Movies', 'Shows', 'Learning', 'Live', 'Critism',  ];
     return(<>
         <div className="pl-3">
             

@@ -13,7 +13,7 @@ const VideoSearch = () => {
     useEffect(() => {
         dispatch(closeSuggestion());
         fetchSearchedVideo();
-    }, [])
+    }, [search_query])
 
     const fetchSearchedVideo = async () => {
         let data = await fetch(YOUTUBE_KEYWORD_SEARCH + search_query);

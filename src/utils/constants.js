@@ -1,5 +1,5 @@
-// const API_KEY = "AIzaSyAKvQ-QvF3YYFw5OOa9C42VWBxqM2j8j0w";
-const API_KEY = "AIzaSyBop-NQnholFCeyJE88uaNDp_bBVC3blIw";
+const API_KEY = "AIzaSyAKvQ-QvF3YYFw5OOa9C42VWBxqM2j8j0w";
+// const API_KEY = "AIzaSyBop-NQnholFCeyJE88uaNDp_bBVC3blIw";
 // const API_KEY = '';
 
 export const YOUTUBE_API = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=AU&key=' + API_KEY;
